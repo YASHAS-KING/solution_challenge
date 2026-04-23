@@ -89,6 +89,15 @@ def simulate_move(device_id):
     print(f"\n📦 Device {device_id} marked as MOVED")
     print(f"   location_verified = False")
     print(f"   Next alert from this device will have location_uncertain = True\n")
+    
+def clear_alerts():
+    """Delete all incidents from Firestore"""
+    docs = db.collection("incidents").stream()
+    count = 0
+    for doc in docs:
+        doc.reference.delete()
+        count += 1
+    print(f"\n🗑️  Cleared {count} incidents from Firestore\n")
 
 # ── CLI ──────────────────────────────────────────────────────────────────────
 
@@ -96,6 +105,7 @@ parser = argparse.ArgumentParser(
     description="CrisisSync IoT Simulator — fire test incidents into Firebase"
 )
 subparsers = parser.add_subparsers(dest="command")
+subparsers.add_parser("clear", help="Delete all incidents")
 
 # fire command
 fire_parser = subparsers.add_parser("fire", help="Fire a single crisis alert")
@@ -125,6 +135,8 @@ elif args.command == "list":
     list_devices()
 elif args.command == "move":
     simulate_move(args.device)
+elif args.command == "clear":
+    clear_alerts()
 else:
     parser.print_help()
 

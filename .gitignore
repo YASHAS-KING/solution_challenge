@@ -1,19 +1,29 @@
-# Node
+# Dependencies
 node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment variables — NEVER commit these
 .env
 .env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Firebase
 .firebase/
 firebase-debug.log
-firestore-debug.log
 
-# Python
-__pycache__/
-*.pyc
-venv/
-.env
+# Editor
+.vscode/
+.idea/
 
-# Build
-build/
-dist/.env
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*

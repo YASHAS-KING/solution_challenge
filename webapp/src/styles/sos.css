@@ -1,0 +1,193 @@
+/* webapp/src/styles/sos.css */
+
+/* ── Guest SOS Home ── */
+.sos-home {
+  min-height: 100vh; display: flex; flex-direction: column;
+  background: #0a0a0f; color: white; padding: 0;
+}
+.sos-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.sos-logo { font-family: var(--font-main); font-size: 18px; font-weight: 800; }
+.sos-room {
+  background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4);
+  color: #ef4444; padding: 4px 12px; border-radius: 20px;
+  font-size: 13px; font-weight: 700; font-family: var(--font-mono);
+}
+
+.sos-hero {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 32px 24px; gap: 28px;
+}
+.sos-tagline { font-size: 22px; font-weight: 700; text-align: center; }
+
+.sos-panic-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #ff3b3b, #c00);
+  border: 6px solid rgba(255,100,100,0.3);
+  box-shadow: 0 0 0 12px rgba(220,38,38,0.1), 0 0 60px rgba(220,38,38,0.3);
+  color: white; transition: all 0.15s;
+  animation: sos-breathe 3s ease-in-out infinite;
+}
+.sos-panic-btn:hover {
+  box-shadow: 0 0 0 20px rgba(220,38,38,0.15), 0 0 80px rgba(220,38,38,0.4);
+  transform: scale(1.02);
+}
+.sos-panic-btn:active { transform: scale(0.97); }
+.sos-btn-icon { font-size: 52px; }
+.sos-btn-text { font-size: 26px; font-weight: 900; letter-spacing: 0.08em; }
+.sos-btn-sub { font-size: 11px; opacity: 0.8; }
+
+@keyframes sos-breathe {
+  0%, 100% { box-shadow: 0 0 0 12px rgba(220,38,38,0.1), 0 0 60px rgba(220,38,38,0.3); }
+  50% { box-shadow: 0 0 0 20px rgba(220,38,38,0.15), 0 0 90px rgba(220,38,38,0.4); }
+}
+
+.sos-note { font-size: 13px; color: rgba(255,255,255,0.5); text-align: center; max-width: 280px; line-height: 1.5; }
+
+.sos-footer { padding: 20px 24px; }
+.sos-call-btn {
+  display: block; text-align: center; width: 100%;
+  padding: 14px; border-radius: 12px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  color: white; text-decoration: none;
+  font-size: 15px; font-weight: 700; font-family: var(--font-main);
+  transition: background 0.15s;
+}
+.sos-call-btn:hover { background: rgba(255,255,255,0.1); }
+.sos-call-btn.secondary {
+  background: transparent; border-color: rgba(255,255,255,0.1);
+  font-size: 13px; padding: 12px; color: rgba(255,255,255,0.6);
+}
+
+/* ── SOS Form ── */
+.sos-form-page { min-height: 100vh; background: #0a0a0f; color: white; }
+.sos-form-header {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 16px 20px; background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.back-btn {
+  background: rgba(255,255,255,0.06); color: white; border-radius: 8px;
+  padding: 7px 14px; font-size: 13px; font-weight: 600;
+}
+.sos-form-header h1 { font-size: 18px; font-weight: 800; flex: 1; }
+.room-badge {
+  background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4);
+  color: #ef4444; padding: 4px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; font-family: var(--font-mono);
+}
+
+.sos-form-body { padding: 20px; display: flex; flex-direction: column; gap: 24px; }
+
+.form-section { display: flex; flex-direction: column; gap: 10px; }
+.form-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); }
+
+.crisis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.crisis-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 16px 12px; border-radius: 12px;
+  background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.08);
+  color: white; transition: all 0.15s;
+}
+.crisis-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.crisis-btn.selected { background: rgba(239,68,68,0.15); border-color: #ef4444; }
+.crisis-icon { font-size: 32px; }
+.crisis-label { font-size: 12px; font-weight: 700; text-align: center; }
+
+.form-input, .form-textarea {
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  color: white !important;
+}
+.form-input:focus, .form-textarea:focus {
+  border-color: rgba(239,68,68,0.6) !important;
+}
+.form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+.form-error {
+  background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4);
+  color: #ef4444; padding: 12px; border-radius: 8px; font-size: 13px;
+}
+
+.sos-submit-btn {
+  padding: 18px; border-radius: 12px;
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  color: white; font-size: 17px; font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 20px rgba(220,38,38,0.3);
+  transition: all 0.15s;
+}
+.sos-submit-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(220,38,38,0.4); }
+.sos-submit-btn:active { transform: translateY(0); }
+.sos-submit-btn.loading { opacity: 0.7; cursor: not-allowed; }
+
+/* ── Submitted ── */
+.sos-submitted {
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 32px 24px; gap: 20px;
+  background: #0a0a0f; color: white; text-align: center;
+}
+.submitted-icon { font-size: 72px; }
+.sos-submitted h1 { font-size: 32px; font-weight: 900; }
+.sos-submitted p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+.submitted-room strong { color: #22c55e; }
+.submitted-tips {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 16px 20px; text-align: left; width: 100%; max-width: 340px;
+}
+.submitted-tips p { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: rgba(255,255,255,0.9); }
+.submitted-tips ul { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.submitted-tips li { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+/* ── Staff Mobile ── */
+.staff-mobile { min-height: 100vh; background: var(--bg); color: var(--text); }
+.sm-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px; background: var(--bg2); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.sm-logo { font-size: 17px; font-weight: 800; }
+.sm-role { font-size: 12px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.1em; }
+.sm-loading { padding: 32px; text-align: center; color: var(--text2); }
+.sm-clear {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 60px 24px; color: var(--text2); font-size: 14px;
+}
+.sm-clear span { font-size: 40px; }
+.sm-section { padding: 12px 16px; }
+.sm-section-title {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text2); margin-bottom: 10px; padding: 4px 0;
+}
+.sm-section-title.urgent { color: var(--red); }
+
+.sm-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+  margin-bottom: 8px; overflow: hidden; cursor: pointer;
+}
+.sm-card.active { border-left: 3px solid var(--c, var(--red)); }
+.sm-card-main { display: flex; align-items: center; gap: 12px; padding: 12px 14px; }
+.sm-icon { font-size: 24px; flex-shrink: 0; }
+.sm-info { flex: 1; min-width: 0; }
+.sm-type { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--text2); }
+.sm-loc { display: block; font-size: 14px; font-weight: 600; }
+.sm-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.sm-sev {
+  font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px;
+  color: white; font-family: var(--font-mono);
+}
+.sm-status { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text2); }
+.sm-expanded { padding: 0 14px 14px; border-top: 1px solid var(--border); }
+.sm-ai { font-size: 12px; color: var(--text2); line-height: 1.5; margin: 10px 0; }
+.sm-guest, .sm-room { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
+.sm-btns { display: flex; gap: 8px; margin-top: 12px; }
+.sm-btn {
+  flex: 1; padding: 10px; border-radius: 8px;
+  font-size: 13px; font-weight: 700; color: white;
+}
+.sm-btn.ack { background: var(--blue); }
+.sm-btn.resolve { background: var(--green); }
