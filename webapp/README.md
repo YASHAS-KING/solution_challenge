@@ -119,7 +119,7 @@ Each document = one IoT sensor device
 - Firebase CLI: `npm install -g firebase-tools`
 - Google Cloud CLI: https://cloud.google.com/sdk/docs/install
 
----
+
 
 ### 1. Clone the repo
 

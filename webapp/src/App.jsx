@@ -9,6 +9,8 @@ import "./styles/dashboard.css";
 import "./styles/sos.css";
 import "./styles/devices.css";
 
+
+// Inside your <Routes> block:
 export default function App() {
   return (
     <BrowserRouter>
@@ -27,6 +29,7 @@ export default function App() {
         <Route path="/qr" element={<QRGenerator />} />
 
         <Route path="*" element={<Navigate to="/" />} />
+      
       </Routes>
     </BrowserRouter>
   );

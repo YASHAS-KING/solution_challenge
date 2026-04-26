@@ -18,6 +18,7 @@ import IncidentFeed from "../components/dashboard/IncidentFeed";
 import DeviceStatus from "../components/dashboard/DeviceStatus";
 import SeverityHeatmap from "../components/dashboard/SeverityHeatmap";
 import TriagePanel from "../components/dashboard/TriagePanel";
+import Analytics from "../components/dashboard/Analytics";
 
 export default function Dashboard() {
   const [incidents, setIncidents] = useState([]);
@@ -134,7 +135,7 @@ export default function Dashboard() {
 
       {/* Nav Tabs */}
       <nav className="dash-nav">
-        {["feed", "triage", "devices", "heatmap"].map((tab) => (
+        {["feed", "triage", "devices", "heatmap", "analytics"].map((tab) => (
           <button
             key={tab}
             className={`nav-tab ${activeTab === tab ? "active" : ""}`}
@@ -144,6 +145,7 @@ export default function Dashboard() {
             {tab === "triage" && "🧠 AI Triage"}
             {tab === "devices" && "🔌 Devices"}
             {tab === "heatmap" && "🌡️ Heatmap"}
+            {tab === "analytics" && "📊 Analytics"}
           </button>
         ))}
       </nav>
@@ -175,6 +177,10 @@ export default function Dashboard() {
             {activeTab === "heatmap" && (
               <SeverityHeatmap incidents={incidents} />
             )}
+            {activeTab === "analytics" && (
+  <Analytics incidents={incidents} />
+)}
+
           </>
         )}
       </main>
